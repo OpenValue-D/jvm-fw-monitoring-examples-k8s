@@ -11,8 +11,10 @@ jobs:
       - name: Checkout target repox
         uses: actions/checkout@master
         with:
-          repository: Openvalue-muc/jvm-fw-monitoring-examples@main
+          repository: Openvalue-muc/jvm-fw-monitoring-examples
           path: ./jvm-fw-monitoring-examples
+          github-token: ${{ github.token }}
+          token: ${{ secrets.TOKEN }}
       - name: Configure JDK
         uses: actions/setup-java@v2
         with:
