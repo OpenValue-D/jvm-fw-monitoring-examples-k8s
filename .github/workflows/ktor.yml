@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@master
+        with:
+          path: ./jvm-fw-monitoring-examples-k8s
       - name: Checkout target repox
         uses: actions/checkout@master
         with:
@@ -31,6 +33,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          file: jvm-fw-monitoring-examples-k8s/Dockerfile
           tags: jjbeto/jvm-fw-monitoring-examples-ktor
           build-args: |
             JAR_FILE=ktor-monitoring/build/libs/ktor-monitoring-1.0-SNAPSHOT-all.jar
